@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'portfolios/css/create.css' %}">
+<br><br>
+<div class="container">
+  
+  <nav class="navbar navbar-light" style="background-color: #fcc8c8;">
+    <div class="container-fluid">
+      <p class = 'Write'> Write</p>
+      <p class = 'Write_2'><a href="{% url 'portfolios:projectlist' %}" class="btn" style="background-color: rgb(255, 255, 255)">+목록</a></p>
+    </div></nav><br>
+ 
+
+  <form action="{% url 'portfolios:update' portfolio.pk %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="flex-container">
+      <div class = 'ms-2 Write_2' style="margin-top:8px;">카테고리 {{ form.category }}</div>
+      <div class = 'w-75 Write_2'>제목: {{ form.title }}</div>
+    </div>
+
+    <br>
+    <p class = 'Write_2'>Content</p>
+    {{ form.media }}
+    {{ form.content|safe }}
+    <br>
+    <br>
+    <p>
+      프로젝트 링크 : {{ form.p_link }}
+    </p>
+    <br><br>
+    <div class="flex-container">
+      <div>{{ image_form.as_p }}</div>
+      <div><p class = 'Write_3'><button class='btn btn-lg' style="background-color: #fcc8c8;">제출</button></div>
+    </div>
+    <br>
+  </form>
+
+  <br>
+  {% if db_images %}
+    <div class="image-box" style = "border:0.5px solid #c7c7c7; border-radius: 5px; padding: 10px;”>
+      <form action="#" method="POST">
+        {% csrf_token %}
+        {% for image in db_images %}
+        <div class="image-line">
+          <div style="margin-top:8px;"><span id=i{{ image.pk }}>{{ image.image }}</span></div>
+          <div style="margin-top:8px;"> &nbsp;&nbsp; <button id="image_delete" data-pk={{ image.pk }}>삭제</button></div>
+        </div>
+        {% endfor %}
+    </div>
+  {% endif %}
+
+  
+
+
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+    const imageDelete = document.querySelectorAll('#image_delete')
+
+    imageDelete.forEach((elem) => {
+      elem.addEventListener('click', (event)=>{
+        event.preventDefault()
+
+        axios({
+          method: 'POST',
+          url: `/portfolios/image/${elem.dataset.pk}/delete/`,
+          headers: {'X-CSRFToken': csrftoken}
+        })
+        .then((re)=>{console.log(re)
+          const imageName = document.querySelector(`#i${elem.dataset.pk}`)
+          imageName.remove()
+          elem.remove()
+        })          
+        .catch((e)=>{console.log(e)})
+
+      })
+    })
+    
+  </script>
+  
+</div>
+{% endblock content %}

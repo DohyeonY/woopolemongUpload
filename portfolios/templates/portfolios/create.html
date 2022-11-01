@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" href="{% static 'portfolios/css/create.css' %}">
+<br><br>
+<div class="container">
+  
+  <nav class="navbar" style="background-color: #fcc8c8;">
+    <div class="container-fluid">
+      <p class = 'Write'> Write</p>
+      <p class = 'Write_2'><a href="{% url 'portfolios:projectlist' %}" class="btn" style="background-color: rgb(255, 255, 255)">+목록</a></p>
+    </div></nav><br>
+
+
+  <form action="{% url 'portfolios:create' %}" method="POST" enctype="multipart/form-data" class="container-fluid">
+    {% csrf_token %}
+    <div class="flex-container">
+      <div class = 'ms-2 Write_2' style="margin-top:8px;">카테고리 {{ form.category }}</div>
+      <div class = 'w-75 Write_2'>제목: {{ form.title }}</div>
+    </div>
+
+    <br>
+    <div class="container-fluid">
+      <p class = 'Write_2'>Content</p>
+      {{ form.media }}
+      {{ form.content|safe }}
+      <br>
+      <br>
+      <p>
+        프로젝트 링크 : {{ form.p_link }}
+      </p>
+
+      <br><br>
+
+      <div class="flex-container">
+        <div>{{ image_form.as_p }}</div>
+        <div><p class = 'Write_3'><button class='btn btn-lg' style="background-color: #fcc8c8;">제출</button></div>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+{% endblock content %}

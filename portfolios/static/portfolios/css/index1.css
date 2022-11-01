@@ -1,0 +1,191 @@
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+section{
+    padding-bottom: 50px;
+}
+
+#main_index{
+    position: relative;
+}
+
+#index_main_img{
+    background-image: url('../img/index_main.png');
+    position: relative;
+    max-width: 100%;
+    height: 50%;
+    filter: brightness(50%);
+    /* opacity: 0.5; */
+}
+
+/* #index_main_img:hover{
+    animation-name:main_change;
+    animation-duration:10s;
+    animation-fill-mode:forwards;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+}
+
+@keyframes main_change{
+    from{filter: brightness(50%);}
+    to{filter: brightness(70%);}
+} */
+
+
+.index_main_text{
+    width: 100%;
+    font-family: 'yg-jalnan';
+    text-align: center;
+    font-size: 5.5rem;
+    letter-spacing: 10px;
+    top: 50%;
+    left: 30%;
+    text-shadow: 2px 2px 2px black;
+    position: absolute;
+    transform: translate( -50%, -50% );
+    color: white;
+}
+
+
+
+
+.index_main_text .sub:hover{
+    animation-name:sub_title_change;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+   
+}
+
+@keyframes sub_title_change{
+    from{filter: brightness(100%);}
+    to{filter: brightness(70%);}
+}
+
+.index_main_text:hover{
+    animation-name:main_title_change;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+    
+}
+@keyframes main_title_change{
+    from{filter: brightness(100%);}
+    to{filter: brightness(70%);}
+    /* from{font-size: 5.5rem;}
+    to{font-size: 6.5rem} */
+}
+
+.sub{
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: rgb(184, 184, 184);
+}
+
+
+
+.sub span{
+    font-size:2.5rem;
+    color: aliceblue;
+}
+
+.section_head{
+    font-family: 'yg-jalnan';
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    font-size: 4rem;
+}
+
+.team_member {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.team_member img {
+    width: 100%;
+    height: auto;
+    border: 10px solid rgba(0, 0, 0, 0.1);
+}
+
+.team_member img:hover{
+    animation-name:team_member_change;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+}
+
+@keyframes team_member_change{
+    from{filter: brightness(100%);}
+    to{filter: brightness(70%);}
+}
+
+.team_member h4{
+    font-family: 'yg-jalnan';
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.member_comment{
+    font-family: 'yg-jalnan';
+    font-size: 1.5rem;
+    color: gray;
+}
+
+.introduce{
+    display: inline;
+}
+
+.introduce p{
+    font-family: 'yg-jalnan';
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: gray;
+}
+
+.tc{
+    text-align: center;
+}
+
+.collection{
+    max-width: 80%;
+    height: auto;
+}
+
+.collection:hover{
+    animation-name:collection_change;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+   
+}
+
+@keyframes collection_change{
+    from{filter: brightness(100%);}
+    to{filter: brightness(70%);}
+}
+
+
+@media (max-width: 1000px) {
+    .index_main_text {
+        font-size: 3.5rem;
+    }
+    .sub {
+        font-size: 1rem;
+    }
+    .sub span{
+        font-size: 1.5rem
+    }
+    .section_head {
+        font-size: 3rem;
+    }
+    .introduce p {
+        font-size: 1.5rem
+    }
+}

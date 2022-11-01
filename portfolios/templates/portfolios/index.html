@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'portfolios/css/index1.css' %}">
+
+    <audio autoplay>
+        <source src="{% static 'portfolios/audio/bgm.mp3' %}" type='audio/mp3'>
+    </audio>
+
+    <div id="main_index">
+        <img src="{% static 'portfolios/img/index_main.png' %}" alt="..." id='index_main_img'>
+        <h1 class="index_main_text">우폴레몽<br>
+            <p class='sub'><span>우</span>리들의 포트<span>폴</span>리오 <span>레</span>포트 <span>모음<span></p>
+        </h1>
+        
+    </div>
+    <section class="page-section bg-white">
+        <div class="container">
+            <div>
+                <h1 id='sogae' class="section_head">- 우폴레몽 소개 -</h1>
+            </div>
+            <div class="tc">
+                <div class="introduce">
+                    <img src="{% static 'portfolios/img/friends.png' %}" alt="..." class="collection">
+                </div>
+                <div class="introduce">
+                    <p>
+                        우폴레몽은 '우리들의 포트폴리오 레포트 모음'을 줄인 말입니다.<br>
+                        처음 진행하는 프로젝트 이기때문에 많이 어설프기도 하지만<br>
+                        이 프로젝트를 기반으로 앞으로 저희들의 경험을 쌓아가기 위해 진행하였습니다.<br>
+                        <del>저희 6명은 삼성 청년 소프트웨어 아카데미(ssafy) 광주 1반에서 만나,<br>
+                        알고리즘 공부를 위해 스터디를 이루었습니다.<br>
+                        최유경 바보 (아 뭐라 써야하지)</del>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section bg-light">
+        <div class="container">
+            <div>
+                <h1 class="section_head">- 딩코 팀 소개 -</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="team_member">
+                        <img class="mx-auto rounded-circle" src="{% static 'portfolios/img/kty.png' %}" alt="..." />
+                        <h4>김태영</h4>
+                        <p class="member_comment">코딩을 즐기는 사람</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="team_member">
+                        <img class="mx-auto rounded-circle" src="{% static 'portfolios/img/khh.png' %}" alt="..." />
+                        <h4>김희현</h4>
+                        <p class="member_comment">팀의 막내</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="team_member">
+                        <img class="mx-auto rounded-circle" src="{% static 'portfolios/img/sjw.png' %}" alt="..." />
+                        <h4>심재원</h4>
+                        <p class="member_comment">팀의 굳건한 맏형</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="team_member">
+                        <img class="mx-auto rounded-circle" src="{% static 'portfolios/img/ydh.png' %}" alt="..." />
+                        <h4>여도현</h4>
+                        <p class="member_comment">코딩이 제일 쉬웠어요</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="team_member">
+                        <img class="mx-auto rounded-circle" src="{% static 'portfolios/img/jwj.png' %}" alt="..." />
+                        <h4>정원재</h4>
+                        <p class="member_comment">기술 고문</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="team_member">
+                        <img class="mx-auto rounded-circle" src="{% static 'portfolios/img/cyk.png' %}" alt="..." />
+                        <h4>최유경</h4>
+                        <p class="member_comment">응원 담당</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section bg-white">
+        <div class="container">
+            <div>
+                <h1 class="section_head" id="project">- 포트폴리오 -</h1>
+            </div>
+            <div class="tc">
+                <a href="{% url 'portfolios:projectlist' %}">
+                    <img src="{% static 'portfolios/img/collection.png' %}" alt="..." class="collection">
+                </a>
+            </div>
+        </div>
+    </section>
+    
+{% endblock content %}

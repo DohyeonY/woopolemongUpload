@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'yg-jalnan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navbar{
+  border-radius: 20px / 20px;
+}
+
+.Write{
+  font-family: 'yg-jalnan';
+  font-size: 1.6rem;
+  
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;}
+
+
+.Write_2{
+  font-family: 'yg-jalnan';
+  font-size: 1.1rem;
+  color: #000000;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;}
+
+.Write_3{
+  font-family: 'yg-jalnan';
+  font-size: 2rem;
+  
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;
+  float: right;}
+
+
+.Title_input{
+  width: 94%;
+}
+
+#cke_id_content{
+  width: 100% !important;
+}
+
+.django-ckeditor-widget{
+  width: 100%;
+}
+
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-image{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.image-line{
+  display: flex;
+  justify-content: start;
+}
+
+#image_delete{
+  border: 2px solid #949494;
+  color: #949494;
+  border-radius: 5px;
+}
+
+#image_delete:hover{
+  border: 2px solid #000000;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 5px;
+}
