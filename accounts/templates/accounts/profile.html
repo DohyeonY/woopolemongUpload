@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex flex-column"> 
+    <div class="d-flex mx-auto mt-4" style="width:90%">
+        {% comment %} 회원 프로필란 {% endcomment %}
+        <div class="d-flex flex-column justify-content-between" style="width:15%; height:80vh">
+            {% comment %} 회원사진 {% endcomment %}
+            <div class="d-flex flex-column"> 
+
+                <div class="d-flex flex-column p-1" style="border:solid; 1px; border-color:lightgray; border-radius: 5px;">
+                    <div style=" border:solid; 1px; black; width:100px; height:100px; " class="mx-auto">
+                        사-진
+                    </div>
+                    
+                    <div style="font-size:2em">
+                        {{ username }}
+                    </div>
+
+                    {% comment %} 자기소개 {% endcomment %}
+                    <div class="intro-box d-flex flex-column ">
+                        <div class="intro-span my-2" style= "height:40px;">{{ user.intro }}</div>
+                        <form  data-user-name={{ username }} style="display:none" class="intro-form">
+                            <input type="text" class="intro-input my-2" name="content" style="height:40px; width:100%">
+                            <input type="submit" value="저장" class="intro-save btn m-1" style="background-color:#fcc8c8">
+                        </form>
+                    </div>
+
+                    <div class="d-flex mt-1" >
+                        <input type="submit" value="프로필 편집" class="intro-edit-btn btn m-1" style="background-color:#fcc8c8">
+                    </div>
+                </div>
+    
+                <div class="d-flex">
+                    <input type="submit" value="회원정보 수정" class="user-info-change-btn btn m-2" style="background-color:#fcc8c8; content-box:120px">
+                </div>
+            </div>
+        
+              {% comment %} 회원탈퇴 {% endcomment %}
+        
+              {% if request.user.username == username %}
+                <form action="{% url 'accounts:signout' %}"  method="POST">
+                    {% csrf_token %}   
+                    <input type="submit" value="회원탈퇴" class="btn bg-danger text-light m-2">
+                </form> 
+            {% endif %}
+                
+        </div>
+        <hr>
+        
+        {% comment %} 작성글 목록{% endcomment %}
+        <div style="width:80%" class="m-3">
+            <h3>작성글</h3>
+            <hr >
+                <ul>
+                    {% for project in projects %}
+                    <a href="{% url "portfolios:detail" project.pk %}" style="text-decoration: none; color:black;"> 
+                        <li>
+                            <p>제목:{{ project.title }} </p>
+                            <div class="d-flex">
+                                {{ project.content|safe}}
+                            </div>
+                        </li>
+                    </a> 
+                    {% empty %}
+                        <p>작성글이 없습니다.</p>
+                    {% endfor %}
+                </ul>
+            <hr>
+        </div>
+        
+
+        
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const introBtn = document.querySelector('.intro-edit-btn')
+    const introBox = document.querySelector('.intro-box')
+    const introSpan = document.querySelector('.intro-span')
+    const introForm = document.querySelector('.intro-form')
+    const introInput = document.querySelector('.intro-input')
+    const introSaveBtn = document.querySelector('.intro-save')
+    const userChangeBtn = document.querySelector('.user-info-change-btn')
+
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+
+    introBtn.addEventListener('click', function(event){
+        introSpan.style.display='none'
+        introInput.value = introSpan.innerText
+        introForm.style.display='block'
+        introBtn.style.display='none'
+    })
+
+    introSaveBtn.addEventListener('click', function(event){
+        event.preventDefault()
+        let data = new FormData()
+        data.append('intro', introInput.value)
+        axios({
+            method:'post',
+            url:`http://127.0.0.1:8000/accounts/profile/${introForm.dataset.userName}/`,
+            data,
+            headers:{
+                'X-CSRFToken': csrftoken
+            }
+        })
+        .then(response=>{
+            introSpan.innerText = introInput.value
+            introForm.style.display='none'
+            introSpan.style.display='block'
+            introBtn.style.display='block'
+        }) 
+        .catch((error) => {
+            console.log(error)
+        })         
+    })
+    
+
+
+</script>
+{% endblock content %}

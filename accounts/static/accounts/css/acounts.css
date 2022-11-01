@@ -1,0 +1,93 @@
+
+a{
+    color:#59ADCA; 
+    text-decoration-line:none;
+}
+
+
+.box{
+    margin-top: 50px;
+}
+
+.signup-deco{
+    border-radius: 10px;
+}
+
+
+.login-para{
+    font-size:3.5em; 
+    text-align:center;
+    margin-bottom: 0;
+}
+
+
+
+.signup-para{
+    font-size:3.5em; 
+    margin-bottom: 0;
+
+}
+
+.remember-pwd-sector{
+    width: 80%;
+}
+
+.social{
+    max-width : 11rem; 
+    height: 4rem; 
+    background:white;
+    border:none;
+    width: 30%;
+}
+
+
+
+.login-input{
+    width : 80%; 
+    min-height:3.5em;
+    outline: none;
+
+    border:1px;
+    border:solid;
+    border-radius: 5px;
+    border-color : #B9D0FA;
+
+} 
+
+.login-input:focus{
+
+    border-color : #F3DADE; 
+}
+
+input::placeholder {
+    color: lightgray;
+    padding-left: 4px;
+  }
+
+.signup-btn{
+  width : 80%; 
+  height: 60px; 
+  border:none; 
+  background:#59ADCA;
+  border-radius: 5px;
+  color : white;
+
+}
+
+.signup-submit-btn{
+    width : 80%; 
+    height:60px; 
+    border:none; 
+    background:#59ADCA;
+    border-radius: 5px;
+    color : white;
+}
+
+.img-box{
+    width:100%;
+}
+
+
+.social-login{
+    width : 80%; 
+}
