@@ -3,7 +3,7 @@ Description=uWSGI service
 After=syslog.target
  
 [Service]
-ExecStart=/home/ubuntu/myvenv/bin/uwsgi -i /srv/woopolemongUpload/.config/uwsgi/woopolemongUp.ini
+ExecStart=/home/ubuntu/myvenv/bin/uwsgi -i /srv/woopolemongUpload/.config/uwsgi/woopolemong.ini
  
 Restart=always
 KillSignal=SIGQUIT
